@@ -365,6 +365,7 @@ FodyWeavers.xsd
 # Local settings
 appsettings.local.json
 appsettings.*.local.json
+**/appsettings.local.json
 
 # VS Code
 .vscode/
