@@ -1,0 +1,6 @@
+{
+  "Wix": {
+    "ApiKey": "your-wix-api-key",
+    "AccountId": "your-wix-account-id"
+  }
+}
