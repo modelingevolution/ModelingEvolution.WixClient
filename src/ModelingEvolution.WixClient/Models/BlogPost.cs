@@ -1,11 +1,12 @@
 using System.Text.Json.Serialization;
+using ModelingEvolution.WixClient.Identifiers;
 
 namespace ModelingEvolution.WixClient.Models;
 
 public class BlogPost
 {
     [JsonPropertyName("id")]
-    public string Id { get; set; } = string.Empty;
+    public PostId Id { get; set; }
 
     [JsonPropertyName("title")]
     public string Title { get; set; } = string.Empty;
@@ -23,10 +24,10 @@ public class BlogPost
     public bool Featured { get; set; }
 
     [JsonPropertyName("categoryIds")]
-    public List<string> CategoryIds { get; set; } = new();
+    public List<CategoryId> CategoryIds { get; set; } = new();
 
     [JsonPropertyName("tagIds")]
-    public List<string> TagIds { get; set; } = new();
+    public List<TagId> TagIds { get; set; } = new();
 
     [JsonPropertyName("memberId")]
     public string? MemberId { get; set; }

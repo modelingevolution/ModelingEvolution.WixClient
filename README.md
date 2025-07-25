@@ -21,22 +21,30 @@ dotnet add package ModelingEvolution.WixClient
 
 ```csharp
 using ModelingEvolution.WixClient;
+using ModelingEvolution.WixClient.Identifiers;
+using Microsoft.Extensions.Logging;
 
 // Initialize the client
+var loggerFactory = LoggerFactory.Create(builder => builder.AddConsole());
 var client = new WixClientBuilder()
     .WithApiKey("your-api-key")
     .WithAccountId("your-account-id")
+    .WithLoggerFactory(loggerFactory)
     .Build();
 
-// Get a blog post
-var post = await client.Blog.GetPostAsync("post-id");
+// Get a blog post (using strongly-typed ID)
+PostId postId = "post-id";
+var post = await client.Blog.GetPostAsync(postId);
 
 // Create a draft post
 var draft = await client.Blog.CreateDraftPostAsync(new CreateDraftPostRequest
 {
-    Title = "My New Post",
-    Content = "Post content here...",
-    CategoryIds = new[] { "category-1", "category-2" }
+    DraftPost = new DraftPostData
+    {
+        Title = "My New Post",
+        Content = "Post content here...",
+        CategoryIds = new List<CategoryId> { "category-1", "category-2" }
+    }
 });
 ```
 

@@ -1,11 +1,12 @@
 using System.Text.Json.Serialization;
+using ModelingEvolution.WixClient.Identifiers;
 
 namespace ModelingEvolution.WixClient.Models;
 
 public class Category
 {
     [JsonPropertyName("id")]
-    public string Id { get; set; } = string.Empty;
+    public CategoryId Id { get; set; }
 
     [JsonPropertyName("label")]
     public string Label { get; set; } = string.Empty;

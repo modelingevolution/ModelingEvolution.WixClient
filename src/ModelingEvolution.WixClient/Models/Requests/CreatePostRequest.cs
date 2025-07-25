@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using ModelingEvolution.WixClient.Identifiers;
 
 namespace ModelingEvolution.WixClient.Models.Requests;
 
@@ -23,10 +24,10 @@ public class PostData
     public bool Featured { get; set; }
 
     [JsonPropertyName("categoryIds")]
-    public List<string>? CategoryIds { get; set; }
+    public List<CategoryId>? CategoryIds { get; set; }
 
     [JsonPropertyName("tagIds")]
-    public List<string>? TagIds { get; set; }
+    public List<TagId>? TagIds { get; set; }
 
     [JsonPropertyName("memberId")]
     public string? MemberId { get; set; }
